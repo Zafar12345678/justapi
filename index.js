@@ -3,7 +3,7 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const mongoose = require("mongoose");
-mongoose.connect("mongodb+srv://merningday123:merningday123@cluster0.6llqgoh.mongodb.net/software?retryWrites=true&w=majority")
+mongoose.connect("mongodb://localhost:27017/lonex");
 
 app.use(cors());
 const db = mongoose.connection;
