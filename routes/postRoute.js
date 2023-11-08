@@ -18,9 +18,9 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({ storage: storage });
-
+const authorization = require("../middleware/postMiddleware");
 const postController = require("../controllers/postController");
-router.post("/posts", upload.single("image"), postController.createPost);
+router.post("/posts", upload.single("image"),authorization, postController.createPost);
 router.get("/get", postController.getpost);
 router.delete("/delete/:id", postController.deletePost);
 router.put("/update", upload.single("image"), postController.updatePost); // Fixed typo here
